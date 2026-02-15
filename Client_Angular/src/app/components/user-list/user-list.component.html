@@ -1,0 +1,46 @@
+<div class="container">
+
+  <h2>Users</h2>
+
+  <button class="primary" (click)="loadUsers()">
+    Load Users
+  </button>
+
+  <!--  הודעת שגיאה -->
+  <p *ngIf="errorMessage" class="error">
+    {{ errorMessage }}
+  </p>
+
+  <!--  הודעת הצלחה – כאן -->
+  <p *ngIf="successMessage" class="success">
+    {{ successMessage }}
+  </p>
+
+  <ul class="user-list">
+    <li *ngFor="let user of users">
+      <span class="user-id">#{{ user.Id }}</span>
+      <span class="user-name">{{ user.Name }}</span>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h3>Add User</h3>
+
+  <div class="form">
+    <input
+      type="number"
+      placeholder="Id"
+      [(ngModel)]="newUser.Id">
+
+    <input
+      type="text"
+      placeholder="Name"
+      [(ngModel)]="newUser.Name">
+
+    <button class="secondary" (click)="addUser()">
+      Add User
+    </button>
+  </div>
+
+</div>
